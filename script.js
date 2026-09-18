@@ -8,10 +8,8 @@
 =================================================================== */
 
 /* ---------- 1. FILTRE DE PROJECTES ----------
-   Cada targeta porta data-category i cada botó data-filter.
-   Si coincideixen, la targeta es mostra.
-   Per afegir una categoria nova: crea el botó a l'HTML amb el seu
-   data-filter i posa el mateix nom al data-category dels projectes.
+   Cada targeta porta data-category i cada botó data-filter;
+   si coincideixen, la targeta es mostra.
 --------------------------------------------- */
 
 const botonsFiltre = document.querySelectorAll('.filtre');
