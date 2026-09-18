@@ -1,189 +1,325 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="ca" data-theme="clar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miquel Larios Linares — Portafolis</title>
+<meta name="description" content="Portafolis de Miquel Larios Linares, estudiant de Desenvolupament d'Aplicacions Multiplataforma a Reus. Projectes, coneixements, formació i contacte.">
+<meta name="theme-color" content="#f6f8fc">
 
-    <!-- optional for SEO -->
-    <meta
-      name="description"
-      content="A minimal portfolio website showcasing my skills, projects, and writings."
-    />
-    <meta
-      name="keywords"
-      content="portfolio, minimal design,minimalism, web development, projects, skills, html, css"
-    />
-    <meta name="author" content="Nilaacodes" />
-    <meta property="og:title" content="Nilaacodes | Home" />
-    <meta
-      property="og:description"
-      content="A minimal portfolio website showcasing my skills, projects, and writings."
-    />
-    <meta
-      property="og:image"
-      content="https://nilaachandra.github.io/animepfp.jpg"
-    />
-    <meta
-      property="og:url"
-      content="https://nilaachandra.github.io/minimalio"
-    />
-    <meta property="og:type" content="website" />
-    <!-- optional for SEO -->
+<!-- ===========================================================
+     L'ÚNIC QUE HAS DE COMPLETAR ÉS LA SECCIÓ DE PROJECTES.
+     Busca "COMPLETAR" i hi trobaràs les instruccions.
+     La resta ja té les teves dades reals del currículum.
+     La foto.png ha d'estar en aquesta mateixa carpeta.
+     =========================================================== -->
 
-    <title>Nilaacodes | Home</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/jpg" href="./animepfp.jpg" />
-  </head>
-  <body>
-    <header>
-      <img src="./animepfp.jpg" alt="" height="90" width="90" />
-      <div>
-        <div>
-          <h1 style="line-height: 0">Nilaa Laishram</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#principal">Vés al contingut</a>
+
+<!-- bombolles de color del fons -->
+<div class="bombolles" aria-hidden="true">
+  <span class="bombolla b1"></span>
+  <span class="bombolla b2"></span>
+  <span class="bombolla b3"></span>
+  <span class="bombolla b4"></span>
+  <span class="bombolla b5"></span>
+</div>
+
+<!-- ================= NAVEGACIÓ ================= -->
+<header class="capçalera">
+  <nav class="nav" aria-label="Navegació principal">
+    <ul>
+      <li><a href="#inici" class="nav-link">Inici</a></li>
+      <li><a href="#projectes" class="nav-link">Projectes</a></li>
+      <li><a href="#coneixements" class="nav-link">Coneixements</a></li>
+      <li><a href="#formacio" class="nav-link">Formació</a></li>
+      <li><a href="#contacte" class="nav-link">Contacte</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- botó de canvi de tema: va fora de la navegació perquè ha de
+     quedar fix respecte de la pantalla -->
+<button type="button" id="tema" class="tema" aria-pressed="false">
+  <span class="tema-icona" aria-hidden="true">◐</span>
+  <span class="tema-text">Fosc</span>
+</button>
+
+<main id="principal">
+
+  <!-- ================= INICI ================= -->
+  <section id="inici" class="inici">
+    <figure class="retrat">
+      <!-- Si canvies de foto, posa el fitxer en aquesta carpeta i
+           escriu-ne el nom aquí. Millor vertical o quadrada. -->
+      <img src="foto.png" alt="Retrat de Miquel Larios Linares" width="286" height="331">
+    </figure>
+
+    <p class="estat"><span class="punt" aria-hidden="true"></span>Disponible per a pràctiques</p>
+
+    <h1>Miquel Larios Linares</h1>
+    <p class="rol">Estudiant de Desenvolupament d'Aplicacions Multiplataforma</p>
+
+    <p class="presentacio">
+      Vaig començar pels sistemes i les xarxes i he acabat al desenvolupament,
+      així que tant em trobo còmode muntant i configurant una màquina com escrivint
+      el codi que hi corre a sobre. Ara curso DAM a l'Institut Baix Camp i busco
+      unes pràctiques on treballar en projectes reals.
+    </p>
+
+    <ul class="dades">
+      <li><span class="dada-etiqueta">Població</span>Tarragona</li>
+      <li><span class="dada-etiqueta">Correu</span><a href="mailto:miquel28.ml@gmail.com">miquel28.ml@gmail.com</a></li>
+      <li><span class="dada-etiqueta">GitHub</span><a href="https://github.com/miquellarios-byte" target="_blank" rel="noopener noreferrer">miquellarios-byte</a></li>
+      <li><span class="dada-etiqueta">Idiomes</span>Català, castellà i anglès</li>
+    </ul>
+
+    <p class="accions">
+      <a class="boto boto-ple" href="#projectes">Veure els projectes</a>
+      <a class="boto" href="mailto:miquel28.ml@gmail.com">Escriu-me</a>
+    </p>
+  </section>
+
+  <!-- ================= PROJECTES ================= -->
+  <section id="projectes" class="seccio">
+    <h2>Projectes</h2>
+    <p class="seccio-intro">Filtra per tipus per trobar més ràpid el que t'interessi.</p>
+
+    <div class="filtres" role="group" aria-label="Filtrar projectes per tipus">
+      <button type="button" class="filtre" data-filter="tots" aria-pressed="true">Tots</button>
+      <button type="button" class="filtre" data-filter="web" aria-pressed="false">Web</button>
+      <button type="button" class="filtre" data-filter="escriptori" aria-pressed="false">Escriptori</button>
+      <button type="button" class="filtre" data-filter="dades" aria-pressed="false">Bases de dades</button>
+      <button type="button" class="filtre" data-filter="sistemes" aria-pressed="false">Sistemes i xarxes</button>
+    </div>
+
+    <p class="comptador" id="comptador" aria-live="polite"></p>
+
+    <ul class="graella" id="llista">
+
+      <!-- ===========================================================
+           COMPLETAR: substitueix cada bloc per un projecte teu.
+           - data-category: web | escriptori | dades | sistemes
+             (en pots posar més d'una separades per un espai)
+           - data-color: pinta la targeta. Fes-lo servir igual que la
+             primera categoria: web, escriptori, dades o sistemes.
+           - .fitxa-tipus i .fitxa-any: el tipus i l'any
+           - .fitxa-titol: el nom del projecte
+           - .fitxa-text: què fa i què vas fer tu, dues o tres línies
+           - .tecno: les tecnologies, una per element
+           - .fitxa-enllacos: esborra l'enllaç que no tinguis
+           Per afegir-ne més, copia un bloc sencer i enganxa'l a sota.
+           =========================================================== -->
+
+      <li class="fitxa" data-category="escriptori dades" data-color="escriptori">
+        <div class="fitxa-dalt">
+          <span class="fitxa-tipus">Escriptori</span>
+          <span class="fitxa-any">2025</span>
         </div>
-        <p style="color: #fd6500;">
-          Full Stack Developer | UI Designer
+        <h3 class="fitxa-titol">Nom del projecte</h3>
+        <p class="fitxa-text">
+          Explica en dues línies què fa l'aplicació, per a qui és i quina part vas
+          programar tu. Concreta: «gestiona les reserves d'un càmping i desa les
+          dades a MySQL» diu molt més que «aplicació de gestió».
         </p>
-      </div>
-    </header>
+        <ul class="tecno"><li>Java</li><li>MySQL</li><li>Eclipse</li></ul>
+        <p class="fitxa-enllacos">
+          <a href="#" target="_blank" rel="noopener noreferrer">Codi</a>
+        </p>
+      </li>
 
-    <nav>
-      <a href="index.html" style="text-decoration: underline; color: white"
-        >Home</a
-      >
-      <a href="works.html">Works</a>
-      <a href="blogs.html">Blogs</a>
-      <a href="contact.html">Contact Me</a>
-    </nav>
-    <main>
-      <section class="about">
-        <h1>About me</h1>
-        <p>
-          I am a Full Stack Developer with a background in geology and
-          mathematics. I love building and shipping cool products. My expertise
-          lies in React, Next.js, and UI design, and I enjoy working on projects
-          that challenge me to learn new things.
+      <li class="fitxa" data-category="web" data-color="web">
+        <div class="fitxa-dalt">
+          <span class="fitxa-tipus">Web</span>
+          <span class="fitxa-any">2025</span>
+        </div>
+        <h3 class="fitxa-titol">Nom del projecte</h3>
+        <p class="fitxa-text">
+          Un projecte web: què resol, com està estructurat i què en destacaries.
+          Si té una versió en línia, enllaça-la, que és el que més es mira.
         </p>
-      </section>
-      <section class="about">
-        <h1>Skills</h1>
-        <p>
-          Next.Js, React, TypeScript, JavaScript, Tailwind, Express, PostgreSQL,
-          MySQL, Prisma, Supabase, Firebase, Figma.
+        <ul class="tecno"><li>HTML</li><li>CSS</li><li>PHP</li><li>MySQL</li></ul>
+        <p class="fitxa-enllacos">
+          <a href="#" target="_blank" rel="noopener noreferrer">Veure'l en línia</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">Codi</a>
         </p>
-      </section>
-      <section class="experience">
-        <h1>Experience</h1>
-        <ul>
-          <li><span>Developer Freelancer</span> ● January 2024 - Present</li>
-          <li>
-            <span>Web Dev Instructor, SkyIL Computer Institute</span> ● May 2023
-            - Present
-          </li>
+      </li>
+
+      <li class="fitxa" data-category="dades" data-color="dades">
+        <div class="fitxa-dalt">
+          <span class="fitxa-tipus">Bases de dades</span>
+          <span class="fitxa-any">2024</span>
+        </div>
+        <h3 class="fitxa-titol">Nom del projecte</h3>
+        <p class="fitxa-text">
+          Una base de dades o una petita API: quines taules o entitats hi ha, quin
+          problema resol i com s'hi connecta la resta del sistema.
+        </p>
+        <ul class="tecno"><li>MySQL</li><li>Python</li></ul>
+        <p class="fitxa-enllacos">
+          <a href="#" target="_blank" rel="noopener noreferrer">Codi</a>
+        </p>
+      </li>
+
+      <li class="fitxa" data-category="sistemes" data-color="sistemes">
+        <div class="fitxa-dalt">
+          <span class="fitxa-tipus">Sistemes i xarxes</span>
+          <span class="fitxa-any">2024</span>
+        </div>
+        <h3 class="fitxa-titol">Nom del projecte</h3>
+        <p class="fitxa-text">
+          Aquí hi va bé alguna pràctica d'SMX que t'agradés: una xarxa muntada amb
+          màquines virtuals, un servidor configurat, un script d'administració.
+          Explica què vas muntar i per què.
+        </p>
+        <ul class="tecno"><li>VirtualBox</li><li>Windows Server</li><li>Linux</li></ul>
+        <p class="fitxa-enllacos">
+          <a href="#" target="_blank" rel="noopener noreferrer">Documentació</a>
+        </p>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ================= CONEIXEMENTS ================= -->
+  <section id="coneixements" class="seccio">
+    <h2>Coneixements</h2>
+    <p class="seccio-intro">Tot això ho he tocat entre l'SMX, el DAM i els projectes.</p>
+
+    <div class="blocs">
+      <article class="bloc" data-color="dades">
+        <h3>Llenguatges</h3>
+        <ul class="tecno gran">
+          <li>Python</li><li>Java</li><li>PHP</li><li>MySQL</li>
+          <li>Visual Basic .NET</li><li>C#</li>
         </ul>
-      </section>
-      <section class="projects">
-        <h1>Projects</h1>
-        <ul>
-          <li>
-            <a href="https://Spotlistify.vercel.app" target="_blank"
-              >Spotlistify</a
-            >
-            - A directory of Spotify playlists.
-          </li>
-          <li>
-            <a href="https://sillyquestions.vercel.app" target="_blank"
-              >Silly Questions</a
-            >
-            - An AI powered silly tecch questions generator.
-          </li>
-          <li>
-            <a href="https://27startups.vercel.app" target="_blank"
-              >27Startups</a
-            >
-            - A directory of app, product, bussinesses, startups ideas.
-          </li>
+      </article>
+
+      <article class="bloc" data-color="web">
+        <h3>Web</h3>
+        <ul class="tecno gran"><li>HTML</li><li>CSS</li></ul>
+      </article>
+
+      <article class="bloc" data-color="escriptori">
+        <h3>Entorns de desenvolupament</h3>
+        <ul class="tecno gran">
+          <li>Eclipse</li><li>Visual Studio Code</li><li>Visual Studio 2022</li>
         </ul>
-        <a href="works.html">More Projects</a>
-      </section>
-      <section>
-        <h1>My Blogs</h1>
-        <ul>
-          <li>
-            <a href="blog-example.html">The Art of Minimal UI Design</a> - A
-            blog post on creating simple and effective user interfaces.
-          </li>
-          <li>
-            <a
-              href="https://nilaacodes.vercel.app/writings/building-a-component-for-my-portfolio-that-shows-how-far-you-are-from-me"
-              >Building a component for my portfolio that shows how far you are
-              from me.</a
-            >
-            - Tutorial on how to build a component that calculates the distance
-            between two location through ip address.
-          </li>
-          <li>
-            <a
-              href="https://nilaacodes.vercel.app/writings/real-madrid-lost-pre-season-el-clasico"
-              >Real Madrid lost their pre season El Clasico, and you know what
-              that means!!</a
-            >
-            -Preseason has started and Real Madrid have lost the first two
-            games.
-          </li>
+      </article>
+
+      <article class="bloc" data-color="sistemes">
+        <h3>Sistemes i xarxes</h3>
+        <ul class="tecno gran">
+          <li>Muntatge i manteniment d'equips</li>
+          <li>Configuració bàsica de xarxes</li>
+          <li>Administració de Windows</li>
+          <li>Nocions de Linux</li>
         </ul>
-        <a href="blogs.html">More Blogs</a>
-      </section>
-      <section id="contact">
-        <h1>Contact Me</h1>
-        <ul>
-          <li>
-            Email:
-            <a href="mailto:nilalaishram@example.com">nilalaishram@gmail.com</a>
-          </li>
-          <li>
-            Twitter:
-            <a href="https://x.com/nilaacodes" target="_blank">nilaacodes</a>
-          </li>
-          <li>
-            GitHub:
-            <a href="https://github.com/nilaachandra" target="_blank"
-              >github.com/nilaachandra</a
-            >
-          </li>
-          <li>
-            Main Portfolio:
-            <a href="https://nilaacodes.vercel.app" target="_blank"
-              >Nilaacodes</a
-            >
-          </li>
-          <li>
-            Instagram:
-            <a href="https://www.instagram.com/niillaaa.a/" target="_blank"
-              >niillaaa.a</a
-            >
-          </li>
-          <li>
-            Buy Me A Coffee:
-            <a href="https://buymeacoffee.com/nilaacodes" target="_blank"
-              >buymeacoffee.com/nilaacodes</a
-            >
-          </li>
+      </article>
+
+      <article class="bloc" data-color="dades">
+        <h3>Eines</h3>
+        <ul class="tecno gran">
+          <li>VirtualBox</li><li>Git</li><li>GitHub</li><li>Excel</li>
         </ul>
-      </section>
-    </main>
-    <hr />
-    <footer>
-      &copy; 2024 Nilaacodes. All rights reserved.
-      <p>
-        Disclaimer: Building this minimal design was tougher than it looks.
-        Every detail took a lot of effort to get just right. Thanks for
-        visiting, and I hope you enjoy the simplicity!
+      </article>
+
+      <article class="bloc" data-color="web">
+        <h3>Idiomes</h3>
+        <ul class="tecno gran">
+          <li>Català natiu</li><li>Castellà natiu</li><li>Anglès intermedi</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= FORMACIÓ ================= -->
+  <section id="formacio" class="seccio">
+    <h2>Formació i certificats</h2>
+
+    <h3 class="subtitol">Formació acadèmica</h3>
+    <ul class="linia">
+      <li data-color="escriptori">
+        <span class="linia-any">2025 — actualitat</span>
+        <span class="linia-titol">Desenvolupament d'Aplicacions Multiplataforma</span>
+        <span class="linia-lloc">Institut Baix Camp, Reus</span>
+      </li>
+      <li data-color="sistemes">
+        <span class="linia-any">2022 — 2024</span>
+        <span class="linia-titol">Sistemes Microinformàtics i Xarxes</span>
+        <span class="linia-lloc">Institut Vidal i Barraquer, Tarragona</span>
+      </li>
+    </ul>
+
+    <h3 class="subtitol">Certificats i cursos</h3>
+    <ul class="linia">
+      <li data-color="web">
+        <span class="linia-any">2025</span>
+        <span class="linia-titol">Fundamentos de JavaScript</span>
+        <span class="linia-lloc">8 hores</span>
+      </li>
+      <li data-color="dades">
+        <span class="linia-any">2025</span>
+        <span class="linia-titol">Python desde cero</span>
+        <span class="linia-lloc">12 hores</span>
+      </li>
+      <li data-color="sistemes">
+        <span class="linia-any">2022</span>
+        <span class="linia-titol">Socorrisme</span>
+        <span class="linia-lloc">GLOBAL ENCESAP, 100 hores</span>
+      </li>
+    </ul>
+
+    <h3 class="subtitol">Experiència i voluntariat</h3>
+    <ul class="linia">
+      <li data-color="escriptori">
+        <span class="linia-any">2022 — 2025</span>
+        <span class="linia-titol">Socorrista</span>
+        <span class="linia-lloc">Càmping Trillas, Hotel Belvedere i Sangulí Càmping &amp; Resort, Tarragona</span>
+      </li>
+      <li data-color="web">
+        <span class="linia-any">2022</span>
+        <span class="linia-titol">Assistent de bany · voluntariat</span>
+        <span class="linia-lloc">WAVE SOS, Torredembarra. Assistència a persones amb discapacitat o mobilitat reduïda</span>
+      </li>
+      <li data-color="dades">
+        <span class="linia-any">2021</span>
+        <span class="linia-titol">Cambrer</span>
+        <span class="linia-lloc">Mirall d'Estiu, Tarragona</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ================= CONTACTE ================= -->
+  <section id="contacte" class="seccio">
+    <h2>Contacte</h2>
+    <div class="contacte">
+      <p>Si vols comentar qualsevol d'aquests projectes o parlar de pràctiques, escriu-me i et responc.</p>
+      <p class="accions">
+        <a class="boto boto-ple" href="mailto:miquel28.ml@gmail.com">miquel28.ml@gmail.com</a>
+        <a class="boto" href="https://github.com/miquellarios-byte" target="_blank" rel="noopener noreferrer">GitHub</a>
       </p>
-      <p style="font-style: italic">
-        "Good design is as little design as possible." - some German
-        motherfucker
-      </p>
-    </footer>
-  </body>
+    </div>
+  </section>
+
+  <footer class="peu">
+    <p>Miquel Larios Linares · <span id="any"></span> · Fet amb HTML, CSS i JavaScript</p>
+  </footer>
+
+</main>
+
+<button type="button" id="amunt" class="amunt" hidden>
+  <span aria-hidden="true">↑</span>
+  <span class="visually-hidden">Tornar a dalt</span>
+</button>
+
+<script src="script.js"></script>
+</body>
 </html>

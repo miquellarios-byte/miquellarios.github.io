@@ -1,0 +1,116 @@
+/* ===================================================================
+   Portafolis — Miquel Larios Linares
+   1. Filtre de projectes
+   2. Botó de tema clar / fosc
+   3. Navegació que marca la secció on ets
+   4. Botó de tornar a dalt
+   5. Any del peu
+=================================================================== */
+
+/* ---------- 1. FILTRE DE PROJECTES ----------
+   Cada targeta porta data-category i cada botó data-filter.
+   Si coincideixen, la targeta es mostra.
+   Per afegir una categoria nova: crea el botó a l'HTML amb el seu
+   data-filter i posa el mateix nom al data-category dels projectes.
+--------------------------------------------- */
+
+const botonsFiltre = document.querySelectorAll('.filtre');
+const targetes = document.querySelectorAll('#llista .fitxa');
+const comptador = document.getElementById('comptador');
+
+function filtrar(tipus) {
+  let visibles = 0;
+
+  targetes.forEach(targeta => {
+    const categories = (targeta.dataset.category || '').split(' ');
+    const encaixa = tipus === 'tots' || categories.includes(tipus);
+
+    targeta.hidden = !encaixa;
+    if (encaixa) visibles++;
+  });
+
+  comptador.textContent =
+    visibles === 0 ? 'Cap projecte en aquesta categoria.'
+    : visibles === 1 ? '1 projecte'
+    : visibles + ' projectes';
+}
+
+botonsFiltre.forEach(boto => {
+  boto.addEventListener('click', () => {
+    botonsFiltre.forEach(b => b.setAttribute('aria-pressed', String(b === boto)));
+    filtrar(boto.dataset.filter);
+  });
+});
+
+filtrar('tots');
+
+/* ---------- 2. TEMA CLAR / FOSC ----------
+   El tema es guarda al navegador, així que si tornes a entrar
+   la pàgina recorda com la vas deixar. Si mai no l'has tocat,
+   fa servir la preferència del sistema operatiu.
+------------------------------------------ */
+
+const botoTema = document.getElementById('tema');
+const textTema = botoTema.querySelector('.tema-text');
+const icones = { clar: '◐', fosc: '◑' };
+
+function aplicarTema(tema) {
+  document.documentElement.dataset.theme = tema;
+  botoTema.setAttribute('aria-pressed', String(tema === 'fosc'));
+  botoTema.querySelector('.tema-icona').textContent = icones[tema];
+  textTema.textContent = tema === 'fosc' ? 'Clar' : 'Fosc';
+}
+
+function temaInicial() {
+  try {
+    const desat = localStorage.getItem('tema');
+    if (desat === 'clar' || desat === 'fosc') return desat;
+  } catch (error) {
+    // si el navegador no deixa desar res, seguim amb el tema per defecte
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'fosc' : 'clar';
+}
+
+aplicarTema(temaInicial());
+
+botoTema.addEventListener('click', () => {
+  const nou = document.documentElement.dataset.theme === 'fosc' ? 'clar' : 'fosc';
+  aplicarTema(nou);
+  try { localStorage.setItem('tema', nou); } catch (error) { /* res a fer */ }
+});
+
+/* ---------- 3. SECCIÓ ACTIVA A LA NAVEGACIÓ ----------
+   L'IntersectionObserver avisa quan una secció entra a la
+   pantalla i llavors s'il·lumina el seu enllaç del menú.
+---------------------------------------------------- */
+
+const enllacos = document.querySelectorAll('.nav-link');
+const seccions = [...enllacos]
+  .map(enllac => document.querySelector(enllac.getAttribute('href')))
+  .filter(Boolean);
+
+const vigilant = new IntersectionObserver(entrades => {
+  entrades.forEach(entrada => {
+    if (!entrada.isIntersecting) return;
+    enllacos.forEach(enllac => {
+      enllac.classList.toggle('actiu', enllac.getAttribute('href') === '#' + entrada.target.id);
+    });
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+
+seccions.forEach(seccio => vigilant.observe(seccio));
+
+/* ---------- 4. TORNAR A DALT ---------- */
+
+const botoAmunt = document.getElementById('amunt');
+
+window.addEventListener('scroll', () => {
+  botoAmunt.hidden = window.scrollY < 600;
+}, { passive: true });
+
+botoAmunt.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ---------- 5. ANY DEL PEU ---------- */
+document.getElementById('any').textContent = new Date().getFullYear();
